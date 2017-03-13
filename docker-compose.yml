@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  monitoring:
+    image: ubuntu:16.04
+    container_name: monitoring
+    ports:
+     - "7050:9001"
+    volumes:
+     - ./opt/:/opt/
+    entrypoint: /opt/run.sh
+    labels:
+        - traefik.frontend.rule=Host:monitoring.services.alin.be
+        - traefik.backend=monitoring
+        - traefik.frontend.entryPoints=http,https
+        - trarfik.port=9001
+    networks:
+        - web
+
+networks:
+  web:
+    external:
+      name: traefik_webgateway

@@ -1,0 +1,46 @@
+---
+general:
+  healthcheckEvery: 2s
+  httpClientTimeout: 5s
+  refreshDashboardEvery: 5s
+groups:
+  - name: Before API Manager
+    nodes:
+      - name: Greetings
+        endpoint: http://hello.services.alin.be/greeting
+      - name: Employer
+        endpoint: http://employer.services.alin.be/employer
+      - name: File
+        endpoint: http://file.services.alin.be/
+  - name: Afer API Manager
+    nodes:
+      - name: Greetings Hello
+        endpoint: http://api.services.alin.be/hello
+      - name: Employer
+        endpoint: http://api.services.alin.be/employer
+      - name: File F
+        endpoint: http://api.services.alin.be/f
+  - name: Others
+    nodes:
+      - name: Traefik
+        endpoint: http://traefik.services.alin.be
+      - name: Documentation
+        endpoint: http://documentation.services.alin.be
+      - name: Monitoring
+        endpoint: http://monitoring.services.alin.be
+      - name: ApiManager
+        endpoint: http://api.services.alin.be
+      - name: ApiManager Dashboard
+        endpoint: http://apidashboard.services.alin.be
+      - name: Grafana Alert
+        endpoint: http://alert.services.alin.be
+      - name: Monitoring docker Portainer
+        endpoint: http://portainer.services.alin.be
+      - name: Gitlab
+        endpoint: http://10.0.2.15:7100
+      - name: Reglement de travail
+        endpoint: http://10.0.2.15:7200
+      - name: Kibana
+        endpoint: http://10.0.2.15:5601
+      - name: Helloworld
+        endpoint: http://helloworld.services.alin.be
