@@ -18,8 +18,8 @@ groups:
         endpoint: http://api.services.alin.be/hello
       - name: Employer
         endpoint: http://api.services.alin.be/employer
-      - name: File F
-        endpoint: http://api.services.alin.be/f
+#      - name: File F
+#        endpoint: http://api.services.alin.be/f
   - name: Others
     nodes:
       - name: Traefik
@@ -41,6 +41,6 @@ groups:
       - name: Reglement de travail
         endpoint: http://10.0.2.15:7200
       - name: Kibana
-        endpoint: http://10.0.2.15:5601
+        endpoint: http://kibana.services.alin.be:5601
       - name: Helloworld
         endpoint: http://helloworld.services.alin.be
