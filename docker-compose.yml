@@ -1,8 +1,8 @@
-version: '3'
+version: '3.2'
 
 services:
   monitoring:
-    image: ubuntu:16.04
+    image: ubuntu:17.04
     container_name: monitoring
     ports:
      - "7050:9001"
