@@ -1,23 +1,24 @@
-version: '3.2'
+version: '3.5'
 
 services:
   monitoring:
-    image: ubuntu:17.10
-    container_name: monitoring
-    ports:
-     - "7050:9001"
-    volumes:
-     - ./opt/:/opt/
-    entrypoint: /opt/run.sh
-    labels:
+    image: monitoring-image
+    deploy:
+      replicas: 2
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: 50M
+      restart_policy:
+        condition: on-failure
+      labels:
+        - traefik.port=9001
         - traefik.frontend.rule=Host:monitoring.services.alin.be
-        - traefik.backend=monitoring
         - traefik.frontend.entryPoints=http,https
-        - trarfik.port=9001
-    networks:
-        - web
+        - traefik.backend.loadbalancer.method=wrr
+    entrypoint: /opt/run.sh
 
 networks:
-  web:
+  default:
     external:
-      name: traefik_webgateway
+      name: traefik-net
